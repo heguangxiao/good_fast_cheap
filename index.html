@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form>
+        <div>
+            <div><button id="1" type="button" onclick="showGood1();"><img src="off.png" id="showGood" width="100" /></button></div>
+            <div><h1>Good</h1></div>
+        </div>
+        <div>
+            <div><button id="2" type="button" onclick="showFast1();"><img src="off.png" id="showFast" width="100" /></button></div>
+            <div><h1>Fast</h1></div>
+        </div>
+        <div>
+            <div><button id="3" type="button" onclick="showCheap1();"><img src="off.png" id="showCheap" width="100" /></button></div>
+            <div><h1>Cheap</h1></div>
+        </div>
+    </form>
+
+    <script>
+        let showGood ;
+        let showFast ;
+        let showCheap ;
+        showGood = document.getElementById('showGood');
+        showFast = document.getElementById('showFast');
+        showCheap = document.getElementById('showCheap');
+
+        var flagGood = false;
+        var flagFast = false;
+        var flagCheap = false;
+
+        function showGood1() {
+            if (flagGood == false ){
+                showGood.src = "good.png";
+                flagGood = true;
+                if (flagFast == true) {
+                    if (flagCheap == true){
+                        showCheap.src = "off.png";
+                        flagCheap = false;
+                    }
+                }
+            }else{
+                showGood.src = "off.png";
+                flagGood = false;
+            }
+        }
+        function showFast1() {
+            if (flagFast == false){
+                showFast.src = "fast.png";
+                flagFast = true;
+                if (flagGood == true){
+                    if (flagCheap == true){
+                        showGood.src = "off.png";
+                        flagGood = false;
+                    }
+                }
+            }else {
+                showFast.src = "off.png";
+                flagFast = false;
+            }
+        }
+        function showCheap1() {
+            if (flagCheap == false){
+                showCheap.src = "cheap.png";
+                flagCheap = true;
+                if (flagFast == true){
+                    if (flagGood == true){
+                        showFast.src = "off.png";
+                        flagFast = false;
+                    }
+                }
+            }else{
+                showCheap.src = "off.png";
+                flagCheap = false;
+            }
+        }
+    </script>
+</body>
+</html>
